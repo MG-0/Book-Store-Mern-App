@@ -4,6 +4,8 @@ import { ArrowLeft, ShoppingBag } from "lucide-react";
 import useBookDetails from "./useBookDetails";
 import Button from "../../components/ui/Button";
 import { Card } from "../../components/ui/Card";
+// getImageUrl builds the correct image path from the env-based API URL
+import { getImageUrl } from "../../api/axiosInstance";
 
 export default function BookDetails() {
   const navigate = useNavigate();
@@ -67,7 +69,7 @@ export default function BookDetails() {
           <div className="flex items-center justify-center bg-gray-50 rounded-2xl p-6 border border-gray-100">
             <div className="relative w-full max-w-[280px] aspect-[3/4] shadow-md hover:shadow-lg rounded-xl overflow-hidden transition group">
               <img
-                src={`http://localhost:5000/images/${book.imageUrl}`}
+                src={getImageUrl(book.imageUrl)}
                 alt={book.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />

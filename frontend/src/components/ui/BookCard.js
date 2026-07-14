@@ -4,6 +4,8 @@ import { Star, Tag, ShoppingBasket, Heart } from "lucide-react";
 import Button from "./Button";
 import { useWishlist } from "../../context/WishlistContext";
 import { cn } from "../../utils/cn";
+// getImageUrl builds the correct image path from the env-based API URL
+import { getImageUrl } from "../../api/axiosInstance";
 
 export default function BookCard({
   book,
@@ -35,7 +37,7 @@ export default function BookCard({
         className="relative overflow-hidden aspect-[3/4] bg-gray-100 cursor-pointer"
       >
         <img
-          src={`http://localhost:5000/images/${book.imageUrl}`}
+          src={getImageUrl(book.imageUrl)}
           alt={book.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />

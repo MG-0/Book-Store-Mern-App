@@ -7,6 +7,8 @@ import useProfilePage from "./useProfilePage";
 import { Card, CardHeader, CardContent } from "../../components/ui/Card";
 import Skeleton from "../../components/ui/Skeleton";
 import { User, Calendar, MapPin, Package } from "lucide-react";
+// getImageUrl builds the correct image path from the env-based API URL
+import { getImageUrl } from "../../api/axiosInstance";
 
 export default function ProfilePage() {
   const { user, orders, loading } = useProfilePage();
@@ -102,7 +104,7 @@ export default function ProfilePage() {
                           <div className="flex items-center gap-3">
                             {item.book?.imageUrl && (
                               <img
-                                src={`http://localhost:3000/images/${item.book.imageUrl}`}
+                                src={getImageUrl(item.book.imageUrl)}
                                 alt={item.book.title}
                                 className="w-10 h-12 object-cover rounded border"
                               />

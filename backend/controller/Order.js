@@ -1,5 +1,5 @@
 // BACKEND CHANGE COMMENT:
-// This controller handles Order operations. 
+// This controller handles Order operations.
 // - createOrder: fetches the user's database cart, maps its items, copies pricing, creates the Order, and clears the cart database.
 // - getUserOrders: retrieves the list of past orders for the logged-in user, sorting from newest to oldest.
 const Order = require("../model/Order");
@@ -11,21 +11,35 @@ exports.createOrder = async (req, res) => {
     const userId = req.user.id;
     const { shippingAddress, paymentMethod } = req.body;
 
-    if (!shippingAddress || !shippingAddress.name || !shippingAddress.email || !shippingAddress.address || !shippingAddress.city || !shippingAddress.phone) {
-      return res.status(400).json({ success: false, message: "All shipping details are required!" });
+    if (
+      !shippingAddress ||
+      !shippingAddress.name ||
+      !shippingAddress.email ||
+      !shippingAddress.address ||
+      !shippingAddress.city ||
+      !shippingAddress.phone
+    ) {
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "All shipping details are required!",
+        });
     }
 
     // Fetch user's cart
     const cart = await Cart.findOne({ user: userId }).populate("items.book");
     if (!cart || cart.items.length === 0) {
-      return res.status(400).json({ success: false, message: "Your cart is empty!" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Your cart is empty!" });
     }
 
     // Map cart items to order items and calculate prices
     const orderItems = cart.items.map((item) => {
       const book = item.book;
-      const price = book.isOnSale 
-        ? book.price * (1 - book.discountPercentage / 100) 
+      const price = book.isOnSale
+        ? book.price * (1 - book.discountPercentage / 100)
         : book.price;
 
       return {
@@ -52,10 +66,18 @@ exports.createOrder = async (req, res) => {
     cart.totalAmount = 0;
     await cart.save();
 
-    return res.status(201).json({ success: true, message: "Order placed successfully!", order });
+    return res
+      .status(201)
+      .json({ success: true, message: "Order placed successfully!", order });
   } catch (error) {
     console.error("Order Creation Error:", error);
-    return res.status(500).json({ success: false, message: "Failed to place order!", error: error.message });
+    return res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to place order!",
+        error: error.message,
+      });
   }
 };
 
@@ -69,6 +91,12 @@ exports.getUserOrders = async (req, res) => {
 
     return res.status(200).json({ success: true, orders });
   } catch (error) {
-    return res.status(500).json({ success: false, message: "Failed to retrieve orders!", error: error.message });
+    return res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to retrieve orders!",
+        error: error.message,
+      });
   }
 };

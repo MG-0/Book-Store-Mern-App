@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "../../components/ui/Button";
 import { Card } from "../../components/ui/Card";
+// getImageUrl builds the correct image path from the env-based API URL
+import { getImageUrl } from "../../api/axiosInstance";
 
 // CLEAN CODE COMMENT:
 // Separating the right-side summary calculations and place-order button 
@@ -33,7 +35,7 @@ export default function CheckoutOrderSummarySide({
           return (
             <div key={item._id} className="flex gap-4 pt-4 first:pt-0 items-center">
               <img
-                src={`http://localhost:5000/images/${book?.imageUrl}`}
+                src={getImageUrl(book?.imageUrl)}
                 alt={book?.title}
                 className="w-12 h-16 object-cover rounded border shadow-sm"
               />

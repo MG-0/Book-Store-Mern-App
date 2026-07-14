@@ -2,6 +2,8 @@ import React from "react";
 import { Trash2, Plus, Minus } from "lucide-react";
 import Button from "../../components/ui/Button";
 import { Card } from "../../components/ui/Card";
+// getImageUrl builds the correct image path from the env-based API URL
+import { getImageUrl } from "../../api/axiosInstance";
 
 // CLEAN CODE COMMENT:
 // By extracting a single cart item row into its own component, 
@@ -20,7 +22,7 @@ export default function CartItemRow({ item, onQuantityChange, onRemove }) {
       {/* Book Cover and Info */}
       <div className="flex items-center gap-4 w-full sm:w-auto">
         <img
-          src={`http://localhost:5000/images/${book.imageUrl}`}
+          src={getImageUrl(book.imageUrl)}
           alt={book.title}
           className="w-20 h-28 object-cover rounded-lg border shadow-sm group-hover:scale-105 transition duration-300"
         />
