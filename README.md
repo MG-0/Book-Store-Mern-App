@@ -1,69 +1,160 @@
-<h1 align="center">
-  📚 BookStore
-</h1>
+<div align="center">
 
-<p align="center">
-  A full-stack e-commerce web application for buying and managing books — built with the MERN stack.
-</p>
+# 📚 BookStore
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
-</p>
+### A full-stack e-commerce platform for buying and managing programming books
 
-<p align="center">
-  <img src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square" />
-  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
-  <img src="https://img.shields.io/badge/PRs-welcome-orange?style=flat-square" />
-</p>
+<br/>
+
+<!-- Tech Stack Badges -->
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
+<img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" />
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" />
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square" />
+<img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
+<img src="https://img.shields.io/badge/PRs-welcome-orange?style=flat-square" />
+<img src="https://img.shields.io/badge/MERN-Stack-informational?style=flat-square&logo=mongodb" />
+
+</div>
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+<img src="./screenshots/01_home_hero.png" width="100%" alt="Home Hero" />
+<img src="./screenshots/02_featured_books.png" width="100%" alt="Featured Books" />
+
+### 🔐 Authentication
+<img src="./screenshots/05_auth_pages.png" width="100%" alt="Sign Up & Sign In" />
+
+### 🛒 Shopping Experience
+<img src="./screenshots/10_cart_items.png" width="100%" alt="Shopping Cart" />
+<img src="./screenshots/11_checkout.png" width="100%" alt="Checkout" />
+
+### 🔑 Admin Panel
+<img src="./screenshots/13_admin_dashboard.png" width="100%" alt="Admin Dashboard" />
 
 ---
 
 ## ✨ Features
 
 ### 🛍️ Customer Features
-- **Browse Books** — Explore a rich catalog with category filtering, search, and sort options
-- **Book Details** — Detailed view with description, price, author, and related books
-- **Shopping Cart** — Add/remove books, update quantities, view running total
-- **Wishlist** — Save favorite books with heart toggle, persisted in `localStorage`
-- **Checkout** — Place orders with order summary and confirmation
-- **Authentication** — Secure sign-up / sign-in with JWT stored in HTTP-only cookies
-- **User Profile** — View account info and order history
-- **Responsive Design** — Fully optimized for mobile, tablet, and desktop
+| Feature | Description |
+|---|---|
+| 📖 **Browse Books** | Explore a rich catalog with category filtering, search & sort |
+| 🔍 **Book Details** | Detailed view with description, price, author info |
+| 🛒 **Shopping Cart** | Add/remove books, update quantities, view running total |
+| ❤️ **Wishlist** | Save favorite books with heart toggle (localStorage) |
+| 💳 **Checkout** | Place orders with shipping info & payment method selection |
+| 🔐 **Authentication** | Secure sign-up / sign-in with JWT in HTTP-only cookies |
+| 👤 **User Profile** | View account info and full order history |
+| 📱 **Responsive** | Fully optimized for mobile, tablet, and desktop |
 
-### 🔐 Admin Features
-- **Dashboard** — Overview of all books in the store
-- **Add / Update Books** — Full CRUD with image upload via Multer
-- **Category Management** — Create and list book categories
+### 🔑 Admin Features
+| Feature | Description |
+|---|---|
+| 📊 **Dashboard** | Overview of all books in the store |
+| ➕ **Add / Edit Books** | Full CRUD with image upload via Multer |
+| 🏷️ **Categories** | Create and manage book categories |
+| 🗑️ **Delete Books** | Remove books from the catalog instantly |
 
 ### ⚙️ Technical Highlights
-- **JWT Authentication** via secure HTTP-only cookies
-- **Cart isolation per user** — cart resets cleanly on login/logout
-- **Order persistence** — orders saved to MongoDB after successful checkout
-- **Debounced search** — smooth search experience without excess API calls
-- **Skeleton loaders** — perceived performance during data fetching
-- **Error Boundary** — graceful fallback for unexpected UI errors
-- **404 Page** — user-friendly not-found experience
-- **Toast notifications** — real-time feedback via `react-toastify`
+- 🔒 **JWT Authentication** via secure HTTP-only cookies
+- 🔄 **Cart isolation per user** — resets cleanly on login/logout
+- 📦 **Order persistence** — saved to MongoDB after checkout
+- ⚡ **Debounced search** — smooth search without excess API calls
+- 💀 **Skeleton loaders** — perceived performance during data fetch
+- 🛡️ **Error Boundary** — graceful fallback for unexpected UI errors
+- 🔔 **Toast notifications** — real-time feedback via `react-toastify`
+- 🧩 **Atomic Design** — reusable component architecture
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | React 18, React Router v6, Context API |
-| **Styling** | Tailwind CSS (utility-first inline styles) |
-| **Backend** | Node.js, Express.js 5 |
-| **Database** | MongoDB Atlas + Mongoose ODM |
-| **Auth** | JSON Web Tokens (JWT) + bcrypt |
-| **File Upload** | Multer (book cover images) |
-| **Notifications** | react-toastify |
-| **Icons** | lucide-react |
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technology</th>
+    <th>Purpose</th>
+  </tr>
+  <tr>
+    <td><b>🎨 Frontend</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+      <img src="https://img.shields.io/badge/React_Router_v6-CA4245?style=flat-square&logo=reactrouter&logoColor=white" />
+    </td>
+    <td>UI & Routing</td>
+  </tr>
+  <tr>
+    <td><b>🎨 Styling</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
+    </td>
+    <td>Utility-first inline styles</td>
+  </tr>
+  <tr>
+    <td><b>⚙️ Backend</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
+      <img src="https://img.shields.io/badge/Express.js_5-000000?style=flat-square&logo=express&logoColor=white" />
+    </td>
+    <td>REST API Server</td>
+  </tr>
+  <tr>
+    <td><b>🗄️ Database</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white" />
+      <img src="https://img.shields.io/badge/Mongoose-880000?style=flat-square&logo=mongoose&logoColor=white" />
+    </td>
+    <td>NoSQL Database & ODM</td>
+  </tr>
+  <tr>
+    <td><b>🔐 Auth</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white" />
+      <img src="https://img.shields.io/badge/bcrypt-003A70?style=flat-square&logo=letsencrypt&logoColor=white" />
+    </td>
+    <td>Token Auth + Password Hashing</td>
+  </tr>
+  <tr>
+    <td><b>📡 HTTP Client</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" />
+    </td>
+    <td>API Requests</td>
+  </tr>
+  <tr>
+    <td><b>📁 File Upload</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/Multer-FF6B35?style=flat-square&logo=npm&logoColor=white" />
+    </td>
+    <td>Book cover image uploads</td>
+  </tr>
+  <tr>
+    <td><b>🔔 Notifications</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/React_Toastify-FBBF24?style=flat-square&logo=react&logoColor=black" />
+    </td>
+    <td>Toast alerts</td>
+  </tr>
+  <tr>
+    <td><b>🎯 Icons</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/Lucide_React-F56565?style=flat-square&logo=lucide&logoColor=white" />
+    </td>
+    <td>UI Icons</td>
+  </tr>
+</table>
 
 ---
 
@@ -71,30 +162,30 @@
 
 ```
 BookStore/
-├── backend/
-│   ├── config/          # Database connection
+├── 📁 backend/
+│   ├── config/          # Database connection (MongoDB Atlas)
 │   ├── controller/      # Route handlers (books, users, cart, orders, categories)
 │   ├── images/          # Uploaded book cover images
 │   ├── middleware/       # JWT authentication middleware
 │   ├── model/           # Mongoose schemas (Book, User, Cart, Order, Category)
 │   ├── routes/          # Express route definitions
-│   ├── .env.example     # Environment variable template ← copy to .env
+│   ├── .env.example     # ← Environment variable template (copy to .env)
 │   └── server.js        # App entry point
 │
-└── frontend/
+└── 📁 frontend/
     └── src/
-        ├── api/         # Axios API service functions
-        ├── components/  # Reusable UI components (Atomic Design)
-        │   ├── header/  # Desktop + Mobile header sub-components
-        │   ├── ui/      # BookCard, Button, Input, Card, Skeleton...
-        │   ├── admin/   # Admin panel components
-        │   └── ...      # Hero, Footer, FAQ, Testimonials, etc.
-        ├── context/     # AuthContext, CartContext, WishlistContext
-        ├── pages/       # Route-level page components
+        ├── api/              # Axios instance + image URL helper
+        ├── components/       # Atomic Design components
+        │   ├── header/       # DesktopHeader, MobileHeader, MobileMenu
+        │   ├── ui/           # BookCard, Button, Input, Card, Skeleton
+        │   ├── admin/        # Admin CRUD components
+        │   └── ...           # Hero, Footer, FAQ, Testimonials, etc.
+        ├── context/          # AuthContext, CartContext, WishlistContext
+        ├── pages/            # Route-level pages
         │   ├── home, products, cart, checkout
         │   ├── wishlist, profile, about, contact
-        │   ├── signin, signup, bookDetails, notFound
-        └── utils/       # Custom hooks (useDebounce, etc.)
+        │   └── signin, signup, bookDetails, notFound
+        └── utils/            # useDebounce hook, cn utility
 ```
 
 ---
@@ -103,89 +194,92 @@ BookStore/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v18 or higher
-- [npm](https://www.npmjs.com/) v9 or higher
-- A [MongoDB Atlas](https://www.mongodb.com/atlas) account (free tier works)
-
----
+<img src="https://img.shields.io/badge/Node.js-v18+-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/npm-v9+-CB3837?style=flat-square&logo=npm&logoColor=white" />
+<img src="https://img.shields.io/badge/MongoDB_Atlas-Free_Tier-47A248?style=flat-square&logo=mongodb&logoColor=white" />
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/BookStore.git
-cd BookStore
+git clone https://github.com/MG-0/Book-Store-Mern-App.git
+cd Book-Store-Mern-App
 ```
 
----
-
-### 2. Configure the Backend
+### 2. Configure & Run the Backend
 
 ```bash
 cd backend
-cp .env.example .env
-```
-
-Open `.env` and fill in your values:
-
-```env
-PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/bookstore
-JWT_KEY=your_super_secret_jwt_key
-```
-
-Install dependencies and start the server:
-
-```bash
+cp .env.example .env   # Then fill in your values
 npm install
 npm run dev
 ```
 
-The backend will run at: `http://localhost:5000`
+The backend runs at: **`http://localhost:5000`**
 
----
+`.env` file structure:
 
-### 3. Configure the Frontend
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/bookstore
+JWT_KEY=your_super_secret_jwt_key
+```
+
+### 3. Configure & Run the Frontend
 
 ```bash
 cd ../frontend
+# Create frontend/.env with:
+# REACT_APP_API_URL=http://localhost:5000
 npm install
 npm start
 ```
 
-The frontend will run at: `http://localhost:3000`
+The frontend runs at: **`http://localhost:3000`**
 
-> Make sure the backend is running before starting the frontend.
+> ⚠️ Make sure the backend is running before starting the frontend.
 
 ---
 
 ## 🔑 Environment Variables
 
-All secret configuration lives in `backend/.env` (never committed to Git).
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `PORT` | Port the Express server listens on | `5000` |
-| `MONGO_URI` | MongoDB Atlas connection string | `mongodb+srv://...` |
-| `JWT_KEY` | Secret key used to sign JWT tokens | `a-long-random-string` |
+| Variable | Where | Description |
+|----------|-------|-------------|
+| `PORT` | `backend/.env` | Express server port (default: 5000) |
+| `MONGO_URI` | `backend/.env` | MongoDB Atlas connection string |
+| `JWT_KEY` | `backend/.env` | Secret key for signing JWT tokens |
+| `REACT_APP_API_URL` | `frontend/.env` | Backend API base URL |
 
 > 📄 See [`backend/.env.example`](./backend/.env.example) for the full template.
 
 ---
 
-## 📸 Screenshots
+## 🔗 API Endpoints
 
-> _Coming soon — add screenshots of the Home, Products, Cart, and Admin pages here._
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| `POST` | `/users/register` | Register a new user | ❌ |
+| `POST` | `/users/login` | Login and receive JWT cookie | ❌ |
+| `POST` | `/users/logout` | Clear auth cookie | ✅ |
+| `GET` | `/books/getBooks` | Get all books | ❌ |
+| `GET` | `/books/getBook/:id` | Get single book | ❌ |
+| `POST` | `/admin/addBook` | Add a new book | ✅ Admin |
+| `PUT` | `/admin/updateBook/:id` | Update a book | ✅ Admin |
+| `DELETE` | `/admin/deleteBook/:id` | Delete a book | ✅ Admin |
+| `GET` | `/cart/getCart` | Get user's cart | ✅ |
+| `POST` | `/cart/addToCart` | Add book to cart | ✅ |
+| `POST` | `/orders/placeOrder` | Place an order | ✅ |
+| `GET` | `/orders/myOrders` | Get user's orders | ✅ |
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+Pull requests are welcome! For major changes, please open an issue first.
 
 1. Fork the repository
-2. Create your branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m "feat: add my feature"`
-4. Push to the branch: `git push origin feature/my-feature`
+2. Create your branch: `git checkout -b feature/amazing-feature`
+3. Commit: `git commit -m "feat: add amazing feature"`
+4. Push: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
 ---
@@ -196,6 +290,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">
+<div align="center">
+  <br/>
   Made with ❤️ using the MERN Stack
-</p>
+  <br/><br/>
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+</div>

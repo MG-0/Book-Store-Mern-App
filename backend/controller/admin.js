@@ -105,3 +105,5 @@ exports.deleteBook = async (req, res) => {
       .json({ message: "Deleted Book id Failed!", error: error.message });
   }
 };
+
+//MONGO_URI=mongodb://gamalgit_db_user:JfPEuAin92bZQYu6@ac-6ljgojz-shard-00-00.4wlvu32.mongodb.net:27017,ac-6ljgojz-shard-00-01.4wlvu32.mongodb.net:27017,ac-6ljgojz-shard-00-02.4wlvu32.mongodb.net:27017/?ssl=true&replicaSet=atlas-tjcmjg-shard-0&authSource=admin&appName=Cluster0

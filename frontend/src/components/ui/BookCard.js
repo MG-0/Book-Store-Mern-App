@@ -40,6 +40,12 @@ export default function BookCard({
           src={getImageUrl(book.imageUrl)}
           alt={book.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          onError={(e) => {
+            // If the image fails to load, show a clean book-cover placeholder
+            e.target.onerror = null;
+            e.target.style.display = 'none';
+            e.target.parentNode.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+          }}
         />
 
         {/* Wishlist Heart Toggle */}
