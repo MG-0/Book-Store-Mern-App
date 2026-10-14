@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/db");
 const userRoute = require("./routes/User");
 const bookRoute = require("./routes/Book");
@@ -54,11 +55,12 @@ app.use("/categories", categoryRoute);
 app.use("/cart", cartRoute);
 app.use("/orders", orderRoute);
 app.use("/admin", adminRoute);
-app.use("/images", express.static("images"));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== "test") {
+// Do not start listening when deployed as a serverless function on Vercel
+if (process.env.NODE_ENV !== "test" && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`🚀 THE SERVER IS RUNNING AT PORT ${PORT}`);
   });
