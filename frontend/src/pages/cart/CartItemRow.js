@@ -25,6 +25,10 @@ export default function CartItemRow({ item, onQuantityChange, onRemove }) {
           src={getImageUrl(book.imageUrl)}
           alt={book.title}
           className="w-20 h-28 object-cover rounded-lg border shadow-sm group-hover:scale-105 transition duration-300"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80';
+          }}
         />
         <div className="flex flex-col">
           <span className="text-[10px] font-bold text-indigo-600 tracking-wider uppercase mb-1">

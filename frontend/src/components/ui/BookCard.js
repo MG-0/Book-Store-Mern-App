@@ -41,10 +41,8 @@ export default function BookCard({
           alt={book.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            // If the image fails to load, show a clean book-cover placeholder
             e.target.onerror = null;
-            e.target.style.display = 'none';
-            e.target.parentNode.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            e.target.src = 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80';
           }}
         />
 

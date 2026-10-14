@@ -4,7 +4,7 @@ const Book = require("../model/Book");
 // Create New Book
 exports.createBook = async (req, res) => {
   try {
-    const imageUrl = req?.file?.filename;
+    const imageUrl = req?.file?.filename || req?.body?.imageUrl;
     const {
       title,
       author,

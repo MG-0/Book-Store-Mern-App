@@ -15,7 +15,9 @@ const axiosInstance = axios.create({
 // Helper used by every component that needs to show a book cover image.
 // Usage:  <img src={getImageUrl(book.imageUrl)} />
 export const getImageUrl = (imageUrl) => {
-    if (!imageUrl) return null;
+    if (!imageUrl || imageUrl === 'imageUrl') {
+        return 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80';
+    }
     // If the backend already returns a full URL, use it as-is.
     if (imageUrl.startsWith('http')) return imageUrl;
     return `${API_BASE_URL}/images/${imageUrl}`;

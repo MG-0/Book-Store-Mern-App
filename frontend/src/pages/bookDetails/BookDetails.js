@@ -72,6 +72,10 @@ export default function BookDetails() {
                 src={getImageUrl(book.imageUrl)}
                 alt={book.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80';
+                }}
               />
               {book.isFeatured && (
                 <span className="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-sm">
