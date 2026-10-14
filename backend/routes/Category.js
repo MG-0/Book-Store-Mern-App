@@ -10,7 +10,7 @@ router.post(
   categoryController.createCategory,
 );
 
-// Get All Categories
-router.get("/getCategories", auth("admin"), categoryController.getCategory);
+// Get All Categories (Public for visitors to browse categories)
+router.get("/getCategories", categoryController.getCategory);
 
 module.exports = router;

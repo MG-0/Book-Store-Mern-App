@@ -20,11 +20,26 @@ export default function useProductsPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const booksResponse = await axiosInstance.get("/books/getBooks");
-        setBookList(booksResponse.data.books || []);
+        const [booksRes, catRes] = await Promise.allSettled([
+          axiosInstance.get("/books/getBooks"),
+          axiosInstance.get("/categories/getCategories"),
+        ]);
 
-        const categoriesResponse = await axiosInstance.get("/categories/getCategories");
-        setCategories(categoriesResponse.data.categories || []);
+        if (booksRes.status === "fulfilled") {
+          setBookList(booksRes.value.data.books || []);
+        } else {
+          console.error("Failed to load books", booksRes.reason);
+        }
+
+        if (catRes.status === "fulfilled") {
+          setCategories(catRes.value.data.categories || []);
+        } else {
+          console.error("Failed to load categories", catRes.reason);
+        }
+
+        if (booksRes.status === "rejected" && catRes.status === "rejected") {
+          toast.error("Failed to load books or categories");
+        }
       } catch (error) {
         console.error("Failed to fetch products page data", error);
         toast.error("Failed to load books or categories");
