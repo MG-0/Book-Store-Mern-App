@@ -40,7 +40,7 @@ export default function useAddBook() {
       }
     };
     fetchCategory();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     return () => {

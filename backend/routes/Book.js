@@ -4,14 +4,16 @@ const bookController = require("../controller/Book");
 const multer = require("multer");
 const { auth } = require("../middleware/auth");
 
+const path = require("path");
+
 // Upload Image by Multer Processing
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./images");
   },
   filename: function (req, file, cb) {
-    const fieldname = Date.now() + "-" + file.fieldname;
-    cb(null, file.fieldname);
+    const ext = path.extname(file.originalname);
+    cb(null, `${Date.now()}-${file.fieldname}${ext}`);
   },
 });
 

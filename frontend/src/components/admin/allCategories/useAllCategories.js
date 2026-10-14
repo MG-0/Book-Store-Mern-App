@@ -26,7 +26,7 @@ export default function useAllCategories() {
       }
     };
     fetchCategories();
-  }, []);
+  }, [navigate]);
 
   return {
     categoryList,

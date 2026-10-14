@@ -27,13 +27,13 @@ export default function Footer() {
             </p>
             {/* Social links */}
             <div className="flex items-center gap-4 pt-2">
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
                 <FaTwitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
                 <FaGithub className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 bg-gray-800 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
                 <FaLinkedin className="w-4 h-4" />
               </a>
             </div>
@@ -93,8 +93,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>© {currentYear} BookStore. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:underline">Terms of Service</a>
-            <a href="#" className="hover:underline">Privacy Policy</a>
+            <a href="/" className="hover:underline">Terms of Service</a>
+            <a href="/" className="hover:underline">Privacy Policy</a>
           </div>
         </div>
       </div>

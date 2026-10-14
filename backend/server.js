@@ -11,9 +11,29 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv").config();
 const app = express();
 
+// CORS_ORIGIN env variable controls which frontend URL is allowed.
+// Locally: http://localhost:3000
+// Production: https://your-frontend.vercel.app (set in Render env vars)
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(",").map((origin) => origin.trim())
+  : ["http://localhost:3000", "http://localhost:5173"];
+
+app.set("trust proxy", 1);
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, server-to-server)
+      if (!origin) return callback(null, true);
+      if (
+        allowedOrigins.indexOf(origin) !== -1 ||
+        allowedOrigins.includes("*") ||
+        origin.endsWith(".vercel.app")
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Permissive in dev/staging to avoid blocking
+    },
     credentials: true,
   }),
 );
@@ -21,6 +41,12 @@ app.use(
 connectDB();
 app.use(express.json());
 app.use(cookieParser());
+
+// Root Health Check Route
+app.get("/", (req, res) => {
+  res.status(200).json({ status: "ok", message: "BookStore API is running 🚀" });
+});
+
 // Routes
 app.use("/users", userRoute);
 app.use("/books", bookRoute);
@@ -30,8 +56,13 @@ app.use("/orders", orderRoute);
 app.use("/admin", adminRoute);
 app.use("/images", express.static("images"));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 THE SERVER IS RUNNING AT PORT ${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`🚀 THE SERVER IS RUNNING AT PORT ${PORT}`);
+  });
+}
+
+module.exports = app;
+

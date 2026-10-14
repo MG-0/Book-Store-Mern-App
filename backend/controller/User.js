@@ -35,10 +35,11 @@ exports.Signup = async (req, res) => {
       },
     );
 
+    const isProduction = process.env.NODE_ENV === "production";
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -83,10 +84,11 @@ exports.Signin = async (req, res) => {
       },
     );
 
+    const isProduction = process.env.NODE_ENV === "production";
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     const role = (user.role || "user").trim();
@@ -130,12 +132,13 @@ exports.verify = async (req, res) => {
 
 // Signout User
 exports.Signout = (req, res) => {
+  const isProduction = process.env.NODE_ENV === "production";
   res.clearCookie("token", {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
   });
-  res.status(201).json({ message: "Signout Successfully" });
+  res.status(200).json({ message: "Signout Successfully" });
 };
 
 // GET User By ID
